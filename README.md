@@ -81,20 +81,11 @@
 
 参数说明
 
-| 参数              | 类型    | 必须 | 说明                                                         | 示例                                                         |
-| :---------------- | :------ | :--- | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| appid             | string  | 是   | 笔声开放平台应用ID                                           | 595f23df                                                     |
-| ts                | string  | 是   | 当前时间戳，从1970年1月1日0点0分0秒开始到现在的秒数          | 1512041814                                                   |
-| signa             | string  | 是   | 加密数字签名（基于HMACSHA1算法）                             | IrrzsJeOFk1NGfJHW6SkHUoN9CU=                                 |
-| lang              | string  | 否   | 实时语音转写语种，不传默认为中文                             | 语种类型：中文、中英混合识别：cn；英文：en。传参示例如："lang=en" 若未授权无法使用会报错10110 |
-| punc              | string  | 否   | 标点过滤控制，默认返回标点，punc=0会过滤结果中的标点         | 0                                                            |
-| pd                | string  | 否   | 垂直领域个性化参数: 法院: court 教育: edu 金融: finance 医疗: medical 科技: tech 运营商: isp 政府: gov 电商: ecom 军事: mil 企业: com 生活: life 汽车: car | 设置示例：pd="edu" 参数pd为非必须设置，不设置参数默认为通用  |
-| audio_sample_rate | string  | 否   | 音频采样率，有"8000", "16000", "44100", "48000"这四种选择，模式是“16000” | “16000”                                                      |
-| audio_encode      | string  | 否   | 音频编码格式，有"pcm", "aac", "mpeg2", "opus", "flac"这五种选择，请选择其中一种编码格式， 默认“mpeg2” | “mpeg2”, 常规的mp3编码；详细的音频编码格式，参考上述[支持音频详情](#支持音频详情) |
-| speaker_number    | Integer | 否   | 发音人个数，可选值：0-10，0表示盲分。2-4时，表示指定了说话人的数量，返回speakerIds。<br/>*注*：发音人分离目前还是测试效果达不到商用标准，如测试无法满足您的需求，请慎用该功能。 | 默认：2（适用通话时两个人对话的场景）；0表示由AI引擎自我推理计算 |
-| words_output      | string  | 否   | 逐字输出开关。 默认false，逐句输出。 true，开启后带有逐字模式。 | 默认为false。                                                |
-| accurate_speaker  | string  | 否   | 输出高精准的说话人ID，默认为false                            | 默认为false。                                                |
-| audio_denoise     | string  | 否   | 返回降噪后的语音url链接，默认为false                         | 默认为false                                                  |
+| 参数  | 类型   | 必须 | 说明                                                | 示例                         |
+| :---- | :----- | :--- | :-------------------------------------------------- | :--------------------------- |
+| appid | string | 是   | 笔声开放平台应用ID                                  | 595f23df                     |
+| ts    | string | 是   | 当前时间戳，从1970年1月1日0点0分0秒开始到现在的秒数 | 1512041814                   |
+| signa | string | 是   | 加密数字签名（基于HMACSHA1算法）                    | IrrzsJeOFk1NGfJHW6SkHUoN9CU= |
 
 #### signa生成
 
@@ -130,58 +121,7 @@
 
 其中sid字段主要用于DEBUG追查问题，如果出现问题，可以提供sid帮助确认问题。
 
-> 成功
 
-```json
- {'code': '0', 'data': {'data': {'speechResult': {'onebest': '来，倒计时，五，四，三，二，一上分享好，分享已经弹出来了，大家分享活动， 参与抽奖，分享越多，中奖几率越大，前提是关注直播间是的，一定要关注，不然你中奖了，客服联系不到大家，大家如果中奖以后看一下自己的私信，说不定会收到我们客服的提示，记录地址给大家发货，连邮费都不需要出。嗯，谢谢 大家，谢谢大家。继续，我要剧透一下今天在直播间会有什么很重要的一件事情。今天是我们的复兴有礼，给大家准备了很多很好看的戒指和视频，包括像我身上的这一套都会有我的耳环，然后我的项链还有我的戒指都会在有一会儿多姐 大概七八点钟左右给大家看，差不多这个时间，突然pp今天显得富贵了起来，富贵人间富贵花啊。我也不能认输啊。怎么怎么来这个表手表昨天很多人在问浩浩的手表什么时候会有，今天在直播间我们大约会在八点钟给大家开海鸥官方旗 舰店的机械手表，不仅自己带，你送爸爸也可以。', 'duration': 60016, 'detail': [{'sentences': '来，', 'wordBg': '40', 'wordEd': '720', 'speakerId': '0'}, {'xxx'}, {'xxx'}]}},'task_id': 'e7c215dcd55f4b24965cccd611848bd5'}, 'desc': 'success'}
-```
-返回Json图片实例
-<img align="center" src="./images/ar_long_res_picture.png" width="1024" style="max-width: 100%;"/>
-
->
-> 失败
-
-```json
- {'code': '10701', 'data': {}, 'desc': 'Audio encode error, only support pcm, aac, mpeg2, opus and flac'}
-```
-
-
-
-### 结果示例：
-
-```json
-{'code': '0', 'data': {'data': {'speechResult': {'onebest': '来，倒计时，五，四，三，二，一上分享好，分享已经弹出来了，大家分享活动， 参与抽奖，分享越多，中奖几率越大，前提是关注直播间是的，一定要关注，不然你中奖了，客服联系不到大家，大家如果中奖以后看一下自己的私信，说不定会收到我们客服的提示，记录地址给大家发货，连邮费都不需要出。嗯，谢谢 大家，谢谢大家。继续，我要剧透一下今天在直播间会有什么很重要的一件事情。今天是我们的复兴有礼，给大家准备了很多很好看的戒指和视频，包括像我身上的这一套都会有我的耳环，然后我的项链还有我的戒指都会在有一会儿多姐 大概七八点钟左右给大家看，差不多这个时间，突然pp今天显得富贵了起来，富贵人间富贵花啊。我也不能认输啊。怎么怎么来这个表手表昨天很多人在问浩浩的手表什么时候会有，今天在直播间我们大约会在八点钟给大家开海鸥官方旗 舰店的机械手表，不仅自己带，你送爸爸也可以。', 'duration': 60016, 'detail': [{'sentences': '来，', 'wordBg': '40', 'wordEd': '720', 'speakerId': '0'}, {'sentences': '倒计时，', 'wordBg': '720', 'wordEd': '1320', 'speakerId': '0'}, {'sentences': '五，', 'wordBg': '1320', 'wordEd': '2120', 'speakerId': '1'}, {'sentences': '四，', 'wordBg': '2120', 'wordEd': '2640', 'speakerId': '1'}, {'sentences': '三，', 'wordBg': '2640', 'wordEd': '3120', 'speakerId': '1'}, {'sentences': '二，', 'wordBg': '3120', 'wordEd': '3640', 'speakerId': '1'}, {'sentences': '一上分享好，', 'wordBg': '3640', 'wordEd': '5720', 'speakerId': '1'}, {'sentences': '分享已经弹出来了，', 'wordBg': '5720', 'wordEd': '6880', 'speakerId': '1'}, {'sentences': '大家分享活动，', 'wordBg': '6880', 'wordEd': '7800', 'speakerId': '1'}, {'sentences': '参与抽奖，', 'wordBg': '7800', 'wordEd': '8400', 'speakerId': '1'}, {'sentences': '分享越多，', 'wordBg': '8400', 'wordEd': '8960', 'speakerId': '1'}, {'sentences': '中奖几率越大，', 'wordBg': '8960', 'wordEd': '9840', 'speakerId': '1'}, {'sentences': '前提是关注直播间是的，', 'wordBg': '9840', 'wordEd': '11640', 'speakerId': '1'}, {'sentences': '一定要关注，', 'wordBg': '11640', 'wordEd': '12360', 'speakerId': '0'}, {'sentences': ' 不然你中奖了，', 'wordBg': '12360', 'wordEd': '13170', 'speakerId': '0'}, {'sentences': '客服联系不到大家，', 'wordBg': '13170', 'wordEd': '14360', 'speakerId': '0'}, {'sentences': '大家如果中奖以后看一下自己 的私信，', 'wordBg': '14360', 'wordEd': '17000', 'speakerId': '0'}, {'sentences': '说不定会收到我们客服的提示，', 'wordBg': '17000', 'wordEd': '18640', 'speakerId': '0'}, {'sentences': '记录地址给大家发货，', 'wordBg': '18640', 'wordEd': '19800', 'speakerId': '0'}, {'sentences': '连邮费都不需要出。', 'wordBg': '19800', 'wordEd': '20960', 'speakerId': '0'}, {'sentences': '嗯，', 'wordBg': '20960', 'wordEd': '21200', 'speakerId': '1'}, {'sentences': '谢谢大家，', 'wordBg': '21200', 'wordEd': '21800', 'speakerId': '1'}, {'sentences': '谢谢大家。', 'wordBg': '21800', 'wordEd': '22360', 'speakerId': '0'}, {'sentences': '继续，', 'wordBg': '22360', 'wordEd': '22600', 'speakerId': '0'}, {'sentences': '我要剧透一下今天在直播间会有什么很重要的一件事情。', 'wordBg': '22600', 'wordEd': '26080', 'speakerId': '0'}, {'sentences': '今天是 我们的复兴有礼，', 'wordBg': '26080', 'wordEd': '28520', 'speakerId': '0'}, {'sentences': '给大家准备了很多很好看的戒指和视频，', 'wordBg': '28520', 'wordEd': '32280', 'speakerId': '0'}, {'sentences': '包括像 我身上的这一套都会有我的耳环，', 'wordBg': '32280', 'wordEd': '36220', 'speakerId': '1'}, {'sentences': '然后我的项链还有我的戒指都会在有一会儿多姐大概七八点钟左右给大家看，', 'wordBg': '36220', 'wordEd': '41940', 'speakerId': '1'}, {'sentences': '差不多这个时间，', 'wordBg': '41940', 'wordEd': '42780', 'speakerId': '0'}, {'sentences': '突然 pp 今天显得富贵了起来，', 'wordBg': '42780', 'wordEd': '44820', 'speakerId': '0'}, {'sentences': '富贵人间富贵花啊。', 'wordBg': '44820', 'wordEd': '46140', 'speakerId': '1'}, {'sentences': '我也不能认输啊。', 'wordBg': '46140', 'wordEd': '47340', 'speakerId': '0'}, {'sentences': ' 怎么怎么来这个表手表昨天很多人在问浩浩的手表什么时候会有，', 'wordBg': '47340', 'wordEd': '52500', 'speakerId': '0'}, {'sentences': '今天在直播间我们大约会在八点钟给大家开海鸥官方旗舰店的机械手表，', 'wordBg': '52500', 'wordEd': '57980', 'speakerId': '0'}, {'sentences': '不仅自己带，', 'wordBg': '57980', 'wordEd': '58620', 'speakerId': '1'}, {'sentences': '你送爸爸也可以。', 'wordBg': '58620', 'wordEd': '59800', 'speakerId': '1'}]}}, 'task_id': 'e7c215dcd55f4b24965cccd611848bd5'}, 'desc': 'success'}
-```
-
-#### 转写结果data字段说明如下：
-
-| 字段     | 类型                 | 含义                               |
-| :------- | -------------------- | :--------------------------------- |
-| onebest  | String               | 转写的结果文本全部输出。           |
-| duration | Int                  | 音频文件的时长。单位ms             |
-| detail   | JSON Object（array） | 转写输出的句或者字的详细数据信息。 |
-
-##### detail结构体
-
-| 参数名          | 类型                 | 是否必须 | 描述                                                         |
-| :-------------- | :------------------- | :------- | :----------------------------------------------------------- |
-| sentences       | string               | 否       | 每句的转写结果。                                             |
-| wordBg          | string               | 否       | 每句的开始时间。音频起始点为0。单位ms 如果关闭时间戳定位功能，不返回。 |
-| wordEd          | string               | 否       | 每字或每句结束时间。如果关闭时间戳定位功能，不返回。         |
-| speakerId       | string               | 否       | 每句的说话人Id。                                             |
-| wordsResultList | JSON Object（array） | 否       | 句中所对应的每字信息。开启has_participle时，返回wordsResultList部分。详细参考下表 [wordsResultList 结构体](#wordsResultList 结构体) |
-
-
-
-#### wordsResultList 结构体
-
-| 参数名    | 类型   | 是否必须 | 描述                                                         |
-| :-------- | :----- | :------- | :----------------------------------------------------------- |
-| words     | string | 否       | 每字的文本信息。                                             |
-| wordBg    | string | 否       | 每字的开始时间。单位ms                                       |
-| wordEd    | string | 否       | 每字的结束时间。单位ms                                       |
-| speakerId | string | 否       | 每个字的说话人Id。                                           |
-| wp        | string | 否       | 每个字符的属性。 1 识别字符 2 标点（开启标点能力） 4 数字 8 已规则替换的词（开启敏感词） 16 顺滑词（开启顺滑标志） 32 影响语义的空格 64 热词命中 例子 type = 2 标点 type = 5，1+4 识别字符+数字 type =17，1+16 识别字符+顺滑词 |
 
 
 
