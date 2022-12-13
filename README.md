@@ -9,7 +9,7 @@
 
 ## 注册声纹
 
-###  /voiceid/register
+###  /audio/register
 
 ### 参数说明
 
@@ -20,7 +20,8 @@
 | tag_id   | string   | 否                           | 标签，用于自定义字段，以逗号分开 |      |
 | audio    | 声音内容 | 采样率16k、位长16bit、单声道 | 声音内容，可以是文件或者url链接  |      |
 
-
+* 该功能目前支持（20221213）
+* 采用 x-www-form-urlencoded 表单方式提交
 
 ## 搜素声纹
 
@@ -32,7 +33,8 @@
 | app_id   | string   | 必须                         | 自己的应用id                    |      |
 | audio    | 声音内容 | 采样率16k、位长16bit、单声道 | 声音内容，可以是文件或者url链接 |      |
 
-
+* 该功能目前支持（20221213）
+* 采用 x-www-form-urlencoded 表单方式提交
 
 ## 删除声纹
 
