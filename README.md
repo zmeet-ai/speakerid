@@ -37,6 +37,10 @@
 
 * 该功能目前支持（20221213）
 * 采用 x-www-form-urlencoded 表单方式提交
+* 返回示例(返回最接近该声纹的前十条数据)
+```
+[["https://translate.abcpen.com/data?audio_path=dataset/777-126732-0003.flac",["777-126732-0003.flac",100.0,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/777-126732-0004.flac",["777-126732-0004.flac",100.0,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/3752-4944-0011.flac",["3752-4944-0011.flac",39.53543305397034,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/2086-149214-0001.flac",["2086-149214-0001.flac",-47.27879762649536,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/3752-4943-0003.flac",["3752-4943-0003.flac",-71.01322412490845,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/2078-142845-0001.flac",["2078-142845-0001.flac",-73.0065107345581,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/2086-149220-0003.flac",["2086-149220-0003.flac",-81.18547201156616,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/1993-147964-0002.flac",["1993-147964-0002.flac",-82.17806816101074,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/2086-149214-0002.flac",["2086-149214-0002.flac",-82.7784776687622,null,null,null]]]
+```
 
 ## 删除声纹
 
