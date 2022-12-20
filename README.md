@@ -15,7 +15,7 @@
 
 ### 2、接口参数规范
 
-#### a 接口要求
+#### (1) 接口要求
 
 集成实时语音转写API时，需按照以下要求。
 
@@ -27,7 +27,7 @@
 | 响应格式 | 统一采用JSON格式                                             |
 | 开发语言 | 任意，只要可以向笔声云服务发起http[s]请求的均可 
 
-#### b 鉴权
+#### (2) 鉴权
 * * 注意下述参数采用 **x-www-form-urlencoded** 表单方式提交
 
 参数说明
@@ -38,7 +38,7 @@
 | ts    | string | 是   | 当前时间戳，从1970年1月1日0点0分0秒开始到现在的秒数 | 1512041814                   |
 | signa | string | 是   | 加密数字签名（基于HMACSHA1算法）                    | IrrzsJeOFk1NGfJHW6SkHUoN9CU= |
 
-#### c signa生成
+#### (3) signa生成
 * python示例
 
 ```python
@@ -55,7 +55,7 @@ def get_signature(timestamp, dev_id, dev_key):
     return signature
 ```
 
-#### d  返回值
+#### (4)  返回值
 
 结果格式为json，字段说明如下：
 
