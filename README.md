@@ -7,6 +7,8 @@
 * 语音增强后的声纹，可抵抗各种背景噪音
 * 可对人和各种生物体以及环境声如乐器等声音建立声纹
 
+<br/>
+
 ## 二、接口参数规范与鉴权
 
 ### 1、接口说明
@@ -65,6 +67,8 @@ def get_signature(timestamp, dev_id, dev_key):
 | data   | string | 结果数据                                        |
 | msg   | string | 描述                                            |
 
+<br/>
+
 ## 三、声纹识别API文档
 ### 1、注册声纹
 
@@ -116,6 +120,8 @@ def get_signature(timestamp, dev_id, dev_key):
 ### 5、声纹列表
 
 ### /voiceid/list
+
+<br/>
 
 
 ## 四、错误码
