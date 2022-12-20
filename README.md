@@ -119,9 +119,17 @@ def get_signature(timestamp, dev_id, dev_key):
 | spk_name | string   | 必须 | 声纹名称，如“张三” |      |
 | app_id   | string   | 必须 | 自己的应用id       |      |
 
-
 ### 4、声纹数量
+
+返回该组织下声纹数据库里面的所有声纹数量
+
 ### /voiceid/count
+
+##### 参数说明
+
+| 参数字段 | 参数类型 | 必须 | 参数说明     |      |
+| -------- | -------- | ---- | ------------ | ---- |
+| app_id   | string   | 必须 | 自己的应用id |      |
 
 <br/>
 
@@ -129,8 +137,36 @@ def get_signature(timestamp, dev_id, dev_key):
 
 ### /voiceid/list
 
+
 <br/>
 
+### 6、删除声纹数据库
+
+* 删除自己组织下的声纹数据库，试图重建
+
+/voiceid/drop
+##### 参数说明
+
+| 参数字段 | 参数类型 | 必须 | 参数说明     |      |
+| -------- | -------- | ---- | ------------ | ---- |
+| app_id   | string   | 必须 | 自己的应用id |      |
+
+### 7、返回某个speaker的声纹url路径
+
+/voiceid/data
+
+* 返回某个speaker的声纹url路径
+
+/voiceid/data
+##### 参数说明
+
+| 参数字段 | 参数类型 | 必须 | 参数说明     |      |
+| -------- | -------- | ---- | ------------ | ---- |
+| app_id   | string   | 必须 | 自己的应用id |      |
+
+
+
+<br/>
 
 ## 四、错误码
 
