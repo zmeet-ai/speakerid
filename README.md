@@ -118,7 +118,7 @@ def get_signature(timestamp, dev_id, dev_key):
 ### /voiceid/list
 
 
-## 错误码
+## 四、错误码
 
 返回的错误码，统一是字符串数字，比如“0", "10000"等。
 
