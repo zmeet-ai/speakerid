@@ -9,7 +9,7 @@
 
 声纹识别，主要是根据用户传入的语音片段，识别出说话人id；在验证之前，客户需要注册某人的语音片段，便于检索的时候，返回该说话人身份。
 
-## 注册声纹
+## 一、注册声纹
 
 ###  /audio/register
 
@@ -25,7 +25,7 @@
 * 上传某人的语音片段，以注册该说话人的身份。 其中，**spk_name**字段，是在您的组织（app_id)下的某个特定人的名称，您须要确保对其命名的唯一性。 **tag_id**是附属扩展字段，是伴随spk_name而来的扩展可选字段信息。
 * 采用 x-www-form-urlencoded 表单方式提交
 
-## 搜素声纹
+## 二、搜素声纹
 
 ### /audio/search
 ### 参数说明
@@ -35,9 +35,9 @@
 | app_id   | string   | 必须                         | 自己的应用id                    |      |
 | audio    | 声音内容 | 采样率16k、位长16bit、单声道 | 声音内容，可以是文件或者url链接 |      |
 
-* 该功能目前支持（20221213）
 * 采用 x-www-form-urlencoded 表单方式提交
 * 返回示例(返回最接近该声纹的前十条数据)
+
 ```json
 [["https://translate.abcpen.com/data?audio_path=dataset/777-126732-0003.flac",["777-126732-0003.flac",100.0,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/777-126732-0004.flac",["777-126732-0004.flac",100.0,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/3752-4944-0011.flac",["3752-4944-0011.flac",39.53543305397034,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/2086-149214-0001.flac",["2086-149214-0001.flac",-47.27879762649536,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/3752-4943-0003.flac",["3752-4943-0003.flac",-71.01322412490845,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/2078-142845-0001.flac",["2078-142845-0001.flac",-73.0065107345581,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/2086-149220-0003.flac",["2086-149220-0003.flac",-81.18547201156616,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/1993-147964-0002.flac",["1993-147964-0002.flac",-82.17806816101074,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/2086-149214-0002.flac",["2086-149214-0002.flac",-82.7784776687622,null,null,null]]]
 ```
