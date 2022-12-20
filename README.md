@@ -7,7 +7,7 @@
 * 语音增强后的声纹，可抵抗各种背景噪音
 * 可对人和各种生物体以及环境声如乐器等声音建立声纹
 
-## 二、声纹识别API文档
+## 二、接口参数规范与鉴权
 
 ### 1、接口说明
 
@@ -65,8 +65,8 @@ def get_signature(timestamp, dev_id, dev_key):
 | data   | string | 结果数据                                        |
 | msg   | string | 描述                                            |
 
-
-### 3、注册声纹
+## 三、声纹识别API文档
+### 1、注册声纹
 
 ####  /audio/register
 
@@ -82,7 +82,7 @@ def get_signature(timestamp, dev_id, dev_key):
 * 上传某人的语音片段，以注册该说话人的身份。 其中，**spk_name**字段，是在您的组织（app_id)下的某个特定人的名称，您须要确保对其命名的唯一性。 **tag_id**是附属扩展字段，是伴随spk_name而来的扩展可选字段信息。
 * 采用 x-www-form-urlencoded 表单方式提交
 
-### 4、搜素声纹
+### 2、搜素声纹
 
 #### /audio/search
 ##### 参数说明
@@ -99,7 +99,7 @@ def get_signature(timestamp, dev_id, dev_key):
 [["https://translate.abcpen.com/data?audio_path=dataset/777-126732-0003.flac",["777-126732-0003.flac",100.0,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/777-126732-0004.flac",["777-126732-0004.flac",100.0,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/3752-4944-0011.flac",["3752-4944-0011.flac",39.53543305397034,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/2086-149214-0001.flac",["2086-149214-0001.flac",-47.27879762649536,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/3752-4943-0003.flac",["3752-4943-0003.flac",-71.01322412490845,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/2078-142845-0001.flac",["2078-142845-0001.flac",-73.0065107345581,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/2086-149220-0003.flac",["2086-149220-0003.flac",-81.18547201156616,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/1993-147964-0002.flac",["1993-147964-0002.flac",-82.17806816101074,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/2086-149214-0002.flac",["2086-149214-0002.flac",-82.7784776687622,null,null,null]]]
 ```
 
-### 5、删除声纹
+### 3、删除声纹
 
 #### /voiceid/del
 ##### 参数说明
@@ -110,10 +110,10 @@ def get_signature(timestamp, dev_id, dev_key):
 | app_id   | string   | 必须 | 自己的应用id       |      |
 
 
-### 6、声纹数量
+### 4、声纹数量
 ### /voiceid/count
 
-### 7、声纹列表
+### 5、声纹列表
 
 ### /voiceid/list
 
