@@ -76,6 +76,8 @@ def get_signature(timestamp, dev_id, dev_key):
 
 ####  /audio/register
 
+**请确保spk_name和app_id组合字段的i情景下，不要重复(更新字段的方式晚点提供)**
+
 ##### 参数说明
 
 | 参数字段 | 参数类型 | 必须                         | 参数说明                         |
