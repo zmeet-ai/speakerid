@@ -95,6 +95,9 @@ def get_signature(timestamp, dev_id, dev_key):
 ### 2、搜素声纹
 
 #### /voiceid/recognize
+
+打分最高者为返回识别结果。
+
 ##### 参数说明
 
 | 参数字段 | 参数类型 | 必须                         | 参数说明                                       |      |
