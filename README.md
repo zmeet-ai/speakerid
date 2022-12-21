@@ -81,7 +81,7 @@ def get_signature(timestamp, dev_id, dev_key):
 | 参数字段 | 参数类型 | 必须                         | 参数说明                         |
 | -------- | -------- | ---------------------------- | -------------------------------- |
 | spk_name | string   | 必须                         | 声纹名称，如“张三”               |
-| app_id   | string   | 必须                         | 自己的应用id                     |
+| app_id   | string   | 必须                         | 必须自己的应用id(当前版本需要，正式环境不需要) |
 | tag_id   | string   | 否                           | 标签，用于自定义字段 |
 | audio    | 声音内容 | 采样率16k、位长16bit、单声道 | 声音内容，可以是文件或者url链接  |
 
@@ -92,19 +92,19 @@ def get_signature(timestamp, dev_id, dev_key):
 
 ### 2、搜素声纹
 
-#### /audio/search
+#### /voiceid/recognize
 ##### 参数说明
 
-| 参数字段 | 参数类型 | 必须                         | 参数说明                        |      |
-| -------- | -------- | ---------------------------- | ------------------------------- | ---- |
-| app_id   | string   | 必须                         | 自己的应用id                    |      |
-| audio    | 声音内容 | 采样率16k、位长16bit、单声道 | 声音内容，可以是文件或者url链接 |      |
+| 参数字段 | 参数类型 | 必须                         | 参数说明                                       |      |
+| -------- | -------- | ---------------------------- | ---------------------------------------------- | ---- |
+| app_id   | string   | 必须                         | 必须自己的应用id(当前版本需要，正式环境不需要) |      |
+| audio    | 声音内容 | 采样率16k、位长16bit、单声道 | 声音内容，可以是文件或者url链接                |      |
 
 * 采用 x-www-form-urlencoded 表单方式提交
 * 返回示例(返回最接近该声纹的前十条数据)
 
 ```json
-[["https://translate.abcpen.com/data?audio_path=dataset/777-126732-0003.flac",["777-126732-0003.flac",100.0,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/777-126732-0004.flac",["777-126732-0004.flac",100.0,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/3752-4944-0011.flac",["3752-4944-0011.flac",39.53543305397034,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/2086-149214-0001.flac",["2086-149214-0001.flac",-47.27879762649536,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/3752-4943-0003.flac",["3752-4943-0003.flac",-71.01322412490845,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/2078-142845-0001.flac",["2078-142845-0001.flac",-73.0065107345581,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/2086-149220-0003.flac",["2086-149220-0003.flac",-81.18547201156616,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/1993-147964-0002.flac",["1993-147964-0002.flac",-82.17806816101074,null,null,null]],["https://translate.abcpen.com/data?audio_path=dataset/2086-149214-0002.flac",["2086-149214-0002.flac",-82.7784776687622,null,null,null]]]
+{"code":"0","msg":"success","data":{"result":[["jiaozhu",["https://zos.abcpen.com/voiceid/abcpen/20221221/314ff1b7-93d2-4412-b2cd-19a066a04d69.flac",99.99999495118661]],["jiaozhu2",["https://zos.abcpen.com/voiceid/abcpen/20221221/0d7ce5f5-4599-4ced-b903-3c947ce7e29b.flac",99.99999495118661]]]}}
 ```
 
 <br/>
@@ -114,24 +114,32 @@ def get_signature(timestamp, dev_id, dev_key):
 #### /voiceid/del
 ##### 参数说明
 
-| 参数字段 | 参数类型 | 必须 | 参数说明           |      |
-| -------- | -------- | ---- | ------------------ | ---- |
-| spk_name | string   | 必须 | 声纹名称，如“张三” |      |
+| 参数字段 | 参数类型 | 必须 | 参数说明                                       |      |
+| -------- | -------- | ---- | ---------------------------------------------- | ---- |
+| spk_name | string   | 必须 | 声纹名称，如“张三”                             |      |
+| app_id   | string   | 必须 | 必须自己的应用id(当前版本需要，正式环境不需要) |      |
 
 ### 4、声纹数量
 
 返回该组织下声纹数据库里面的所有声纹数量
 
 ### /voiceid/count
+##### 参数说明
 
-##### 
+| 参数字段 | 参数类型 | 必须                                           | 参数说明 |      |
+| -------- | -------- | ---------------------------------------------- | -------- | ---- |
+| app_id   | string   | 必须自己的应用id(当前版本需要，正式环境不需要) |          |      |
 
 <br/>
 
 ### 5、声纹列表
 
 ### /voiceid/list
+##### 参数说明
 
+| 参数字段 | 参数类型 | 必须 | 参数说明                                   |      |
+| -------- | -------- | ---- | ------------------------------------------ | ---- |
+| app_id   | string   | 必须 | 自己的应用id(当前版本需要，正式环境不需要) |      |
 
 <br/>
 
@@ -140,7 +148,11 @@ def get_signature(timestamp, dev_id, dev_key):
 * 删除自己组织下的声纹数据库，试图重建
 
 /voiceid/drop
-##### 
+##### 参数说明
+
+| 参数字段 | 参数类型 | 必须 | 参数说明     |      |
+| -------- | -------- | ---- | ------------ | ---- |
+| app_id   | string   | 必须 | 自己的应用id |      |
 
 ### 7、返回某个speaker的声纹url路径
 
@@ -148,7 +160,11 @@ def get_signature(timestamp, dev_id, dev_key):
 
 * 返回某个speaker的声纹url路径
 
-/voiceid/data
+##### 参数说明
+
+| 参数字段 | 参数类型 | 必须 | 参数说明                                   |      |
+| -------- | -------- | ---- | ------------------------------------------ | ---- |
+| app_id   | string   | 必须 | 自己的应用id(当前版本需要，正式环境不需要) |      |
 
 <br/>
 
