@@ -154,7 +154,7 @@ def get_signature(timestamp, dev_id, dev_key):
 
 * 返回参数示例
 ```json
-[{"spk_id":"jiaozhu2","audio_path":"https://zos.abcpen.com/voiceid/abcpen/20221223/b10f1d63-4f0c-429f-8a4a-adaf7c3830d5.flac"}]
+{"code":"0","msg":"success","data":[{"spk_id":"jiaozhu2","audio_path":"https://zos.abcpen.com/voiceid/abcpen/20221223/b10f1d63-4f0c-429f-8a4a-adaf7c3830d5.flac"},{"spk_id":"jiaozhu","audio_path":"https://zos.abcpen.com/voiceid/abcpen/20221223/7b88ac68-64a9-4bb6-9eef-74bb35954379.flac"}]}
 ```
 <br/>
 
