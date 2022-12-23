@@ -32,6 +32,12 @@ def voiceid_list():
     r = requests.get(url, params=params)
     print(r.text)
 
+def voiceid_del():
+    params = {"app_id": "abcpen", "spk_name": "jiaozhu"}
+    url = "https://voiceid.abcpen.com/voiceid/del"
+    r = requests.get(url, params=params)
+    print(r.text)
+
 def voiceid_drop():
     params = {"app_id": "abcpen"}
     url = "https://voiceid.abcpen.com/voiceid/list"
