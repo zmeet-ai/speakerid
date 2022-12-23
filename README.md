@@ -165,6 +165,11 @@ def get_signature(timestamp, dev_id, dev_key):
 | -------- | -------- | ---- | ------------ | ---- |
 | app_id   | string   | 必须 | 自己的应用id |      |
 
+* 返回参数示例
+```json
+{"code":"0","msg":"success"}
+```
+
 ### 7、返回某个speaker的声纹url路径
 
 /voiceid/data
