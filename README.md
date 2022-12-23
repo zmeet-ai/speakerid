@@ -152,6 +152,10 @@ def get_signature(timestamp, dev_id, dev_key):
 | -------- | -------- | ---- | ------------------------------------------ | ---- |
 | app_id   | string   | 必须 | 自己的应用id(当前版本需要，正式环境不需要) |      |
 
+* 返回参数示例
+```json
+[{"spk_id":"jiaozhu2","audio_path":"https://zos.abcpen.com/voiceid/abcpen/20221223/b10f1d63-4f0c-429f-8a4a-adaf7c3830d5.flac"}]
+```
 <br/>
 
 ### 6、删除声纹数据库
