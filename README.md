@@ -92,6 +92,10 @@ def get_signature(timestamp, dev_id, dev_key):
 * 上传某人的语音片段，以注册该说话人的身份。 其中，**spk_name**字段，是在您的组织（app_id)下的某个特定人的名称，您须要确保对其命名的唯一性。 **tag_id**是附属扩展字段，是伴随spk_name而来的扩展可选字段信息。
 * 采用 x-www-form-urlencoded 表单方式提交
 
+* 返回参数示例
+```json
+{"code":"0","msg":"success"}
+```
 <br/>
 
 ### 2、搜素声纹
@@ -186,6 +190,10 @@ def get_signature(timestamp, dev_id, dev_key):
 | -------- | -------- | ---- | ------------------------------------------ | ---- |
 | app_id   | string   | 必须 | 自己的应用id(当前版本需要，正式环境不需要) |      |
 
+* 返回参数示例
+```json
+{"code":"0","msg":"success","data":{"audio_path":"https://zos.abcpen.com/voiceid/abcpen/20221223/7b88ac68-64a9-4bb6-9eef-74bb35954379.flac"}}
+```
 <br/>
 
 ## 四、错误码
