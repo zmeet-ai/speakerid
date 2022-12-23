@@ -111,7 +111,7 @@ def get_signature(timestamp, dev_id, dev_key):
 * 返回示例(返回最接近该声纹的前十条数据)
 
 ```json
-{"code":"0","msg":"success","data":{"result":[["jiaozhu",["https://zos.abcpen.com/voiceid/abcpen/20221221/314ff1b7-93d2-4412-b2cd-19a066a04d69.flac",99.99999495118661]],["jiaozhu2",["https://zos.abcpen.com/voiceid/abcpen/20221221/0d7ce5f5-4599-4ced-b903-3c947ce7e29b.flac",99.99999495118661]]]}}
+{"code":"0","msg":"success","data":[{"spk_name":"jiaozhu","audio_path":"https://zos.abcpen.com/voiceid/abcpen/20221223/c41bc3cc-49e5-40ad-b5c6-ba9e0051fbe6.flac","score":100.0000080148816},{"spk_name":"jiaozhu2","audio_path":"https://zos.abcpen.com/voiceid/abcpen/20221223/a43fb61a-98ff-4c24-bd5f-731f9b8aa450.flac","score":100.0000080148816}]}
 ```
 
 <br/>
